@@ -3,11 +3,13 @@ import { SafeAreaView, StyleSheet, Switch, Text, View } from "react-native";
 import { useColorScheme } from "nativewind";
 import ListaProductos from "./screens/ListaProductos";
 import Home from './screens/Home'
+import Registro from "./screens/Registro";
+
 
 export default function App() {
   return (
     <SafeAreaView className="mt-10">
-      <Home></Home>
+      <Registro></Registro>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
