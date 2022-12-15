@@ -4,6 +4,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { StyleSheet } from 'react-native'
 import Home from '../screens/Home'
 import ListaProductos from '../screens/ListaProductos'
+import Registro from '../screens/Registro';
+import Ingreso from '../screens/Ingreso';
 
 
 const DrawerNav= createDrawerNavigator()
@@ -14,8 +16,10 @@ export default function Drawer() {
 
   return (
     <DrawerNav.Navigator>
-            <DrawerNav.Screen name='home1' component={Home}/>
-            <DrawerNav.Screen name='Productos' component={ListaProductos}/>
+            <DrawerNav.Screen name='Inicio' component={Home}/>
+            <DrawerNav.Screen name='Tienda' component={ListaProductos}/>
+            <DrawerNav.Screen name='Registro' component={Registro}/>
+            <DrawerNav.Screen name='Ingreso' component={Ingreso}/>
     </DrawerNav.Navigator>
   )
 }
