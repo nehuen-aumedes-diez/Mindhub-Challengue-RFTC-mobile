@@ -1,7 +1,7 @@
 import React from "react";
 import { FlatList, Text } from "react-native";
 import { productos } from "../productos";
-import ProductoCard from "./ProductoCard";
+import ProductoCard from "../componentes/ProductoCard";
 
 export default function ListaProductos() {
   return (
@@ -9,7 +9,7 @@ export default function ListaProductos() {
       data={productos}
       keyExtractor={(producto) => producto.id}
       renderItem={({ item }) => <ProductoCard {...item}></ProductoCard>}
-    contentContainerStyle={{paddingHorizontal: 15}}
+      contentContainerStyle={{ paddingHorizontal: 15 }}
     ></FlatList>
   );
 }
