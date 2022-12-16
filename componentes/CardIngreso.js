@@ -9,7 +9,7 @@ import {
 } from "react-native";
 export default function CardIngreso() {
   const image = {
-    uri: "https://i.pinimg.com/originals/16/96/06/1696069a5fc8c6b92cea9af7c30ee809.jpg",
+    uri: "https://st.depositphotos.com/1051862/3469/i/600/depositphotos_34699129-stock-photo-abstract-red-gradient-background.jpg",
   };
   return (
     <ImageBackground

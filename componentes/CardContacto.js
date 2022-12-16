@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TextInput, ImageBackground, TouchableOpacity } from "react-native";
 
 export default function CardContacto(){
-    const image = {uri:'https://images.alphacoders.com/545/545752.jpg'}
+    const image = {uri:'https://st.depositphotos.com/1051862/3667/i/600/depositphotos_36675635-stock-photo-abstract-orange-gradient-background.jpg'}
     return(
         <View>
             <ImageBackground className='w-full h-full' source={image} resizeMode='cover'>
