@@ -1,1 +1,0 @@
-# Mindhub-Challengue-RFTC-mobile
