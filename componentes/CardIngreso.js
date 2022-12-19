@@ -33,7 +33,7 @@ export default function CardIngreso() {
           <Text className="text-center mt-9 text-red-800 bg-yellow-200 font-bold rounded-full">
             Si no tenés una cuenta aún, por favor:
           </Text>
-          <TouchableOpacity className="flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full">
+          <TouchableOpacity className="flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300">
             <Text className="text-center text-white bg-black font-bold">
               Registrate
             </Text>

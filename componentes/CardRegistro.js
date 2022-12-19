@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   ImageBackground,
+  Button
 } from "react-native";
 export default function CardRegistro() {
   const image = {
@@ -18,7 +19,7 @@ export default function CardRegistro() {
       resizeMode="cover"
     >
       <ScrollView>
-        <View className="justify-center p-5 mt-5">
+        <View className="justify-center p-5 mt-5 ">
           <Text className="text-center text-red-800 bg-yellow-200 font-bold mb-8 rounded-full text-xl">
             Registrate
           </Text>
@@ -41,7 +42,7 @@ export default function CardRegistro() {
           <Text className="text-center mt-9 font-bold bg-white rounded-full text-red-800 bg-yellow-200 font-bold">
             Si ya tenés una cuenta, por favor:
           </Text>
-          <TouchableOpacity className="flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full">
+          <TouchableOpacity className="flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300">
             <Text className="text-center text-white bg-black font-bold">
               Ingresá
             </Text>

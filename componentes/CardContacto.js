@@ -12,7 +12,7 @@ export default function CardContacto(){
             <TextInput className="text-center border p-2 rounded-full my-2 bg-white" placeholder="Apellido"></TextInput>
             <TextInput className="text-center border p-2 rounded-full my-2 bg-white" placeholder="Correo"></TextInput>
             <TextInput className="text-center border p-9 rounded-lg my-2 bg-white" placeholder="Mensaje"></TextInput>
-            <TouchableOpacity className="flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full">
+            <TouchableOpacity className="flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300 ">
             <Text className="text-center text-white bg-black font-bold">
               Enviar
             </Text>
