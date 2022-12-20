@@ -4,7 +4,7 @@ import { BASE_URL } from "../../api/url";
 
 const getBuzo = createAsyncThunk("getBuzo", async () => {
   try {
-    const res = await axios.get(`${BASE_URL}/buzo/`);
+    const res = await axios.get(`${BASE_URL}/buzo`);
     //console.log("BUZO ACTION", res);
     return res.data.res;
 
@@ -52,14 +52,14 @@ const getOneBuzoId = createAsyncThunk(
   }
 );
 
-const filtrarBuzos = createAsyncThunk('filtrarBuzos', async(data) => {
-  let url = ` ${BASE_URL}/buzo?nombre=${data.nombre}&order=${data.order}`
+const filtrarBuzos = createAsyncThunk('filtrarBuzos', async(nombre) => {
+  let url = ` ${BASE_URL}/buzo?nombre=${nombre}`
   try{
       const res = await axios.get(url)
       return {
         buzos: res.data.res,
-        busqueda: data.nombre,
-        ordenPrecio: data.order,
+/*         busqueda: data.nombre,
+        ordenPrecio: data.order, */
       }
   } catch(error){
       console.log(error)
