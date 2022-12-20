@@ -4,7 +4,7 @@ import { BASE_URL } from "../../api/url";
 
 const getRemeraM = createAsyncThunk("getRemeraM", async () => {
   try {
-    const res = await axios.get(`http://localhost:8000/api/remeraM/`);
+    const res = await axios.get(`${BASE_URL}/remeraM/`);
 
     return res.data.res;
 

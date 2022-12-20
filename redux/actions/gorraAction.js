@@ -4,7 +4,7 @@ import { BASE_URL } from "../../api/url";
 
 const getGorra = createAsyncThunk("getGorra", async () => {
   try {
-    const res = await axios.get(`http://localhost:8000/api/gorra/`);
+    const res = await axios.get(`${BASE_URL}/gorra/`);
 
     return res.data.res;
 
