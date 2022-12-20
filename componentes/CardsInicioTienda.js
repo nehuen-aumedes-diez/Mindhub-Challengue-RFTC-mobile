@@ -26,66 +26,66 @@ return (
     <>
 
     <View className="w-full bg-red-900 rounded-3xl p-5 my-5">
-        <Text className='text-lg font-semibold dark:text-white/70'>BUZOS</Text>
+        <Text className='text-4xl text-center text-[#EEA904] font-semibold dark:text-white/70'>BUZOS</Text>
         <View>
             <Image
                 source={{ uri: imagenBuzo }}
                 className="w-full h-72"
-                style={{ resizeMode: "contain" }}
+                style={{ resizeMode: "contain", borderRadius: 25 }}
             ></Image>
         </View>
         <View className='mt-5'>     
-            <Text className='text-sm text-black/60 dark:text-white/70 text-white'>Buzos unisex diseñados en alta calidad</Text>
+            <Text className='text-lg text-black/60 dark:text-white/70 text-white'>Buzos unisex de puro algodón 100% con bordado de alta calidad y diseños exclusivos.</Text>
             <TouchableOpacity className='flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full'>
-                <Text className='text-white dark:text-black font-bold' onPress={irABuzos}>Ir a esta sección</Text>
+                <Text className='text-white text-base dark:text-black font-bold' onPress={irABuzos}>Ir a esta sección</Text>
             </TouchableOpacity>
         </View>
     </View>
     <View className="w-full bg-red-900 rounded-3xl p-5 my-5">
-        <Text className='text-lg font-semibold dark:text-white/70'>REMERAS de MUJERES</Text>
+        <Text className='text-4xl text-center text-[#EEA904] font-semibold dark:text-white/70'>REMERAS de MUJERES</Text>
         <View>
             <Image
                 source={{ uri: imagenRemeMujer }}
                 className="w-full h-72"
-                style={{ resizeMode: "contain" }}
+                style={{ resizeMode: "contain", borderRadius: 25 }}
             ></Image>
         </View>
         <View className='mt-5'>     
-            <Text className='text-sm text-black/60 dark:text-white/70 text-white'>Remeras bien facheritas</Text>
+            <Text className='text-lg text-black/60 dark:text-white/70 text-white'>Camisetas deportivas con escote en 'V' con bordados de alta calidad y diseños exclusivos.</Text>
             <TouchableOpacity className='flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full'>
-                <Text className='text-white dark:text-black font-bold' onPress={irARemeMujer}>Ir a esta sección</Text>
+                <Text className='text-white text-base dark:text-black font-bold' onPress={irARemeMujer}>Ir a esta sección</Text>
             </TouchableOpacity>
         </View>
     </View>
     <View className="w-full bg-red-900 rounded-3xl p-5 my-5">
-        <Text className='text-lg font-semibold dark:text-white/70'>REMERAS de HOMBRES</Text>
+        <Text className='text-4xl text-center text-[#EEA904] font-semibold dark:text-white/70'>REMERAS de HOMBRES</Text>
         <View>
             <Image
                 source={{ uri: imagenRemeHombre }}
                 className="w-full h-72"
-                style={{ resizeMode: "contain" }}
+                style={{ resizeMode: "contain", borderRadius: 25 }}
             ></Image>
         </View>
         <View className='mt-5'>     
-            <Text className='text-sm text-black/60 dark:text-white/70 text-white'>Remeras bien copadas man</Text>
+            <Text className='text-lg text-black/60 dark:text-white/70 text-white'>Camisetas deportivas con corte slim fit, con bordados de alta calidad y diseños exclusivos.</Text>
             <TouchableOpacity className='flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full'>
-                <Text className='text-white dark:text-black font-bold' onPress={irARemeHombre}>Ir a esta sección</Text>
+                <Text className='text-white text-base dark:text-black font-bold' onPress={irARemeHombre}>Ir a esta sección</Text>
             </TouchableOpacity>
         </View>
     </View>
     <View className="w-full bg-red-900 rounded-3xl p-5 my-5">
-        <Text className='text-lg font-semibold dark:text-white/70'>GORRAS</Text>
+        <Text className='text-4xl text-center text-[#EEA904] font-semibold dark:text-white/70'>GORRAS</Text>
         <View>
             <Image
                 source={{ uri: imagenGorra }}
                 className="w-full h-72"
-                style={{ resizeMode: "contain" }}
+                style={{ resizeMode: "contain", borderRadius: 25 }}
             ></Image>
         </View>
         <View className='mt-5'>     
-            <Text className='text-sm text-black/60 dark:text-white/70 text-white'>Gorras pal sol bien facheras</Text>
+            <Text className='text-lg text-black/60 dark:text-white/70 text-white'>Gorras con el escudo bordado en alta calidad, talles ajustables.</Text>
             <TouchableOpacity className='flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full'>
-                <Text className='text-white dark:text-black font-bold' onPress={irAGorras}>Ir a esta sección</Text>
+                <Text className='text-white text-base dark:text-black font-bold' onPress={irAGorras}>Ir a esta sección</Text>
             </TouchableOpacity>
         </View>
     </View>

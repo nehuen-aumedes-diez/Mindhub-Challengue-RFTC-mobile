@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, StyleSheet, TextInput, View } from "react-native";
+import { FlatList, Image, StyleSheet, TextInput, View } from "react-native";
 import ProductoCard from "../componentes/ProductoCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
@@ -8,10 +8,9 @@ import buzoActions from "../redux/actions/buzoAction";
 export default function Buzos() {
     const dispatch = useDispatch();
     const { getBuzo, filtrarBuzos } = buzoActions;
-    const { buzos, ordenPrecio, busqueda } = useSelector((state) => state.buzos);
+    const { buzos } = useSelector((state) => state.buzos);
     const prueba = useSelector((state) => state);
     let navigation = useNavigation()
-    let [ordenamiento, setOrdenamiento] = useState('')
 
     useEffect(() => {
         dispatch(getBuzo());
@@ -27,12 +26,15 @@ export default function Buzos() {
     return (
         <View>
             <TextInput style={styles.textInput} onChangeText={filter} placeholder="Buscar por nombre..." />
-            <FlatList
-            data={buzos}
-            keyExtractor={(buzos) => buzos._id}
-            renderItem={({ item }) => <ProductoCard {...item}></ProductoCard>}
-            contentContainerStyle={{ paddingHorizontal: 15 }}
-            ></FlatList>
+            {buzos.length > 0
+            ?   <FlatList
+                    data={buzos}
+                    keyExtractor={(buzos) => buzos._id}
+                    renderItem={({ item }) => <ProductoCard {...item}></ProductoCard>}
+                    contentContainerStyle={{ paddingHorizontal: 15 }}
+                ></FlatList>
+            :   <Image source={require('../assets/notfound_articulos.png')} style={{width: '100%', height: 500}} />
+            }
         </View>
     );
 }
