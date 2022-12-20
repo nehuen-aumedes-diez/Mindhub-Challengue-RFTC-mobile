@@ -4,8 +4,8 @@ import { BASE_URL } from "../../api/url";
 
 const getBuzo = createAsyncThunk("getBuzo", async () => {
   try {
-    const res = await axios.get(`http://localhost:8000/api/buzo/`);
-
+    const res = await axios.get(`${BASE_URL}/buzo/`);
+    //console.log("BUZO ACTION", res);
     return res.data.res;
 
   } catch (error) {

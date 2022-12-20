@@ -3,6 +3,8 @@ import { SafeAreaView, StyleSheet, Switch, Text, View } from "react-native";
 import { useColorScheme } from "nativewind";
 import ListaProductos from "./screens/ListaProductos";
 import Home from './screens/Home'
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 import Registro from "./screens/Registro";
 
@@ -19,9 +21,11 @@ export default function App() {
       <StatusBar style="auto" />
     </SafeAreaView>
  */
-    <NavigationContainer >
-      <Drawer/>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer >
+        <Drawer/>
+      </NavigationContainer>
+    </Provider>
 
   );
 }
