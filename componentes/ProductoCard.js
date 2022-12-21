@@ -14,53 +14,17 @@ export default function ProductoCard({
 }) {
   const [count, setCount] = React.useState(1);
   const [talleElegido, setTalleElegido] = useState(null)
-  //let [talleActivoS, setTalleActivoS] = useState('')
-  //let [talleActivoM, setTalleActivoM] = useState('')
-  //let [talleActivoL, setTalleActivoL] = useState('')
-  //let [talleActivoXL, setTalleActivoXL] = useState('')
+
   //const [reload, setReload] = useState(true)
 
   const guardarTalle = (event) => {
     console.log("TALLE ELEGIDO ->", event?._targetInst?.memoizedProps?.children);
     setTalleElegido(event?._targetInst?.memoizedProps?.children)
-    //setReload(!reload)
+    
     //console.log(nombre)
     //console.log(_id)
     //console.log(stock);
   }
-  //console.log(talleElegido);
-/*
-  useEffect( () => {
-    if(talleElegido === 'S'){
-        setTalleActivoS(`${talleElegido}-talleactivo`)
-        setTalleActivoM('')
-        setTalleActivoL('')
-        setTalleActivoXL('')
-    }
-    if(talleElegido === 'M'){
-        setTalleActivoM(`${talleElegido}-talleactivo`)
-        setTalleActivoS('')
-        setTalleActivoL('')
-        setTalleActivoXL('')
-    }
-    if(talleElegido === 'L'){
-        setTalleActivoL(`${talleElegido}-talleactivo`)
-        setTalleActivoS('')
-        setTalleActivoM('')
-        setTalleActivoXL('')
-    }
-    if(talleElegido === 'XL'){
-        setTalleActivoXL(`${talleElegido}-talleactivo`)
-        setTalleActivoS('')
-        setTalleActivoM('')
-        setTalleActivoL('')
-    }
-    console.log("S ->", talleActivoS);
-    console.log("M ->", talleActivoM);
-    console.log("L ->", talleActivoL);
-    console.log("XL ->", talleActivoXL);
-}, [reload])
- */
 
   const agregarAlCarrito = () => {
     if (talleElegido === null){
@@ -96,18 +60,38 @@ export default function ProductoCard({
           <Text className='text-xl dark:text-white'>{count}</Text>
           <AntDesign name='pluscircle' size={24} color={colorScheme === 'light' ? 'black' : 'white'}
             onPress={()=>setCount(count+1)}></AntDesign> */}
-            <TouchableOpacity  className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
-              <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>S</Text>
-            </TouchableOpacity>
-            <TouchableOpacity className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
-              <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>M</Text>
-            </TouchableOpacity>
-            <TouchableOpacity className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
-              <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>L</Text>
-            </TouchableOpacity>
-            <TouchableOpacity className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
-              <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>XL</Text>
-            </TouchableOpacity>
+            {talleElegido === 'S'
+            ? <TouchableOpacity style={styles.talleS} className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
+                <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>S</Text>
+              </TouchableOpacity>
+            : <TouchableOpacity className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
+                <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>S</Text>
+              </TouchableOpacity>
+            }
+            {talleElegido === 'M'
+            ? <TouchableOpacity style={styles.talleM} className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
+                <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>M</Text>
+              </TouchableOpacity>
+            : <TouchableOpacity className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
+                <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>M</Text>
+              </TouchableOpacity>
+            }
+            {talleElegido === 'L'
+            ? <TouchableOpacity style={styles.talleL} className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
+                <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>L</Text>
+              </TouchableOpacity>
+            : <TouchableOpacity className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
+                <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>L</Text>
+              </TouchableOpacity>
+            }
+            {talleElegido === 'XL'
+            ? <TouchableOpacity style={styles.talleXL} className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
+                <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>XL</Text>
+              </TouchableOpacity>
+            : <TouchableOpacity className='flex-row justify-center w-8 self-center bg-black dark:bg-black rounded-full'>
+                <Text onPress={guardarTalle} className='text-xl text-white dark:text-black'>XL</Text>
+              </TouchableOpacity>
+            }
         </View>
         <Text className='text-2xl text-white font-extrabold dark:text-white'>${precio}</Text>
       </View>
@@ -123,20 +107,20 @@ export default function ProductoCard({
 }
 // style={styles.talleS}
 const styles = StyleSheet.create({
-/*   talleS: {
+  talleS: {
     borderWidth: 2,
-    borderColor: 'red',
+    borderColor: 'white',
   },
   talleM: {
     borderWidth: 2,
-    borderColor: 'red',
+    borderColor: 'white',
   },
   talleL: {
     borderWidth: 2,
-    borderColor: 'red',
+    borderColor: 'white',
   },
   talleXL: {
     borderWidth: 2,
-    borderColor: 'red',
-  }, */
+    borderColor: 'white',
+  },
 })
