@@ -7,7 +7,10 @@ import {
   TouchableOpacity,
   ImageBackground,
   Button,
+  Keyboard, 
+  Alert
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 export default function CardRegistro() {
   const [inputs, setInputs] = React.useState({
     email: "",
@@ -19,7 +22,13 @@ export default function CardRegistro() {
   const image = {
     uri: "https://st.depositphotos.com/1051862/3469/i/600/depositphotos_34699129-stock-photo-abstract-red-gradient-background.jpg",
   };
-
+  let navigation = useNavigation()
+  const butIng = () => {
+      navigation.navigate('Ingreso')
+  }
+  const butEnvi = () => {
+    navigation.navigate('ListaProductos')
+}
   const validate = () => {
     Keyboard.dismiss();
     let isValid = true;
@@ -59,7 +68,6 @@ export default function CardRegistro() {
     setTimeout(() => {
       try {
         AsyncStorage.setItem("userData", JSON.stringify(inputs));
-        navigation.navigate("");
       } catch (error) {
         Alert.alert("Error", "Algo salió mal");
       }
@@ -115,7 +123,7 @@ export default function CardRegistro() {
             password
           ></TextInput>
           <TouchableOpacity
-            onPress={validate}
+            onPress={() => navigation.navigate("ListaProductos") && validate}
             className="flex-row justify-center w-8/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300"
           >
             <Text className="text-center text-white bg-black font-bold">
@@ -125,7 +133,7 @@ export default function CardRegistro() {
           <Text className="text-center mt-9 font-bold bg-white rounded-full text-red-800 bg-yellow-200 font-bold">
             Si ya tenés una cuenta, por favor:
           </Text>
-          <TouchableOpacity className="flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300">
+          <TouchableOpacity onPress={butIng} className="flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300">
             <Text className="text-center text-white bg-black font-bold">
               Ingresá
             </Text>
