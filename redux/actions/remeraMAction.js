@@ -4,7 +4,7 @@ import { BASE_URL } from "../../api/url";
 
 const getRemeraM = createAsyncThunk("getRemeraM", async () => {
   try {
-    const res = await axios.get(`http://localhost:8000/api/remeraM/`);
+    const res = await axios.get(`${BASE_URL}/productos?tipo=remeraM`);
 
     return res.data.res;
 
@@ -18,7 +18,7 @@ const getRemeraM = createAsyncThunk("getRemeraM", async () => {
 const getOneRemeraMId = createAsyncThunk(
   "getOneRemeraMId",
   async (_id) => {
-    let url = ` ${BASE_URL}/remeraM/?_id=${_id}`;
+    let url = ` ${BASE_URL}/productos?tipo=remeraM&?_id=${_id}`;
     try {
       const res = await axios.get(url);
       console.log(res.data.res);
@@ -52,14 +52,14 @@ const deleteRemeraM = createAsyncThunk("deleteRemeraM", async ({remeraMId}) => {
   }
 });
 
-const filtrarRemerasM = createAsyncThunk('filtrarRemerasM', async(data) => {
-  let url = ` ${BASE_URL}/remeraM?nombre=${data.nombre}&order=${data.order}`
+const filtrarRemerasM = createAsyncThunk('filtrarRemerasM', async(nombre) => {
+  let url = ` ${BASE_URL}/productos?tipo=remeraM&nombre=${nombre}`
   try{
       const res = await axios.get(url)
       return {
         remerasM: res.data.res,
-        busqueda: data.nombre,
-        ordenPrecio: data.order,
+/*         busqueda: data.nombre,
+        ordenPrecio: data.order, */
       }
   } catch(error){
       console.log(error)
