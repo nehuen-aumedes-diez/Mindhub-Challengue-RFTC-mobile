@@ -12,8 +12,6 @@ const DrawerNav= createDrawerNavigator()
 
 
 export default function Drawer() {
-  
-
   return (
     <DrawerNav.Navigator>
             <DrawerNav.Screen name='Inicio' component={Home}/>
