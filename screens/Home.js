@@ -4,16 +4,6 @@ import CardHome from "../componentes/CardHome";
 
 export default function Home(){
     return(
-        <View style={styles.container}>
-            <CardHome></CardHome>
-        </View>
+         <CardHome></CardHome>
     )
 }
-
-const styles = StyleSheet.create({
-    container:{
-        backgroundColor:'black',
-        minHeight:700,
-    }
-})
-
