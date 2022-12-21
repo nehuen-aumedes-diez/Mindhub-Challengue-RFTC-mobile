@@ -22,6 +22,5 @@ export default function App() {
     <NavigationContainer >
       <Drawer/>
     </NavigationContainer>
-
   );
 }

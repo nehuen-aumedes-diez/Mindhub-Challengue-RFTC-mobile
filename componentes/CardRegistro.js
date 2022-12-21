@@ -6,12 +6,73 @@ import {
   TextInput,
   TouchableOpacity,
   ImageBackground,
-  Button
+  Button,
 } from "react-native";
 export default function CardRegistro() {
+  const [inputs, setInputs] = React.useState({
+    email: "",
+    fullname: "",
+    phone: "",
+    password: "",
+  });
+  const [errors, setErrors] = React.useState({});
   const image = {
     uri: "https://st.depositphotos.com/1051862/3469/i/600/depositphotos_34699129-stock-photo-abstract-red-gradient-background.jpg",
   };
+
+  const validate = () => {
+    Keyboard.dismiss();
+    let isValid = true;
+
+    if (!inputs.email) {
+      handleError("Por favor ingresa tu correo", "email");
+      isValid = false;
+    } else if (!inputs.email.match(/\S+@\S+\.\S+/)) {
+      handleError("Ingresa un correo válido", "email");
+      isValid = false;
+    }
+
+    if (!inputs.fullname) {
+      handleError("Por favor ingresa tu nombre y apellido", "fullname");
+      isValid = false;
+    }
+
+    if (!inputs.phone) {
+      handleError("Por favor ingresa un número telefónico", "phone");
+      isValid = false;
+    }
+
+    if (!inputs.password) {
+      handleError("Por favor ingresa una contraseña", "password");
+      isValid = false;
+    } else if (inputs.password.length < 5) {
+      handleError("La contraseña debe tener mínimo 5 caracteres", "password");
+      isValid = false;
+    }
+
+    if (isValid) {
+      register();
+    }
+  };
+
+  const register = () => {
+    setTimeout(() => {
+      try {
+        AsyncStorage.setItem("userData", JSON.stringify(inputs));
+        navigation.navigate("");
+      } catch (error) {
+        Alert.alert("Error", "Algo salió mal");
+      }
+    }, 3000);
+  };
+
+  const handleOnchange = (text, input) => {
+    setInputs((prevState) => ({ ...prevState, [input]: text }));
+  };
+  const handleError = (error, input) => {
+    setErrors((prevState) => ({ ...prevState, [input]: error }));
+  };
+
   return (
     <ImageBackground
       className="w-full h-full"
@@ -25,20 +86,42 @@ export default function CardRegistro() {
           </Text>
           <TextInput
             className="text-center border p-2 rounded-full my-2 bg-white"
-            placeholder="Nombre"
-          ></TextInput>
-          <TextInput
-            className="text-center border p-2 rounded-full my-2 bg-white"
-            placeholder="Apellido"
+            placeholder="Nombre y Apellido"
+            onChangeText={(text) => handleOnchange(text, "fullname")}
+            onFocus={() => handleError(null, "fullname")}
+            error={errors.fullname}
           ></TextInput>
           <TextInput
             className="text-center border p-2 rounded-full my-2 bg-white"
             placeholder="Correo"
+            onFocus={() => handleError(null, "email")}
+            onChangeText={(text) => handleOnchange(text, "email")}
+            error={errors.email}
           ></TextInput>
           <TextInput
+            className="text-center border p-2 rounded-full my-2 bg-white"
+            placeholder="Teléfono"
+            keyboardType="numeric"
+            onFocus={() => handleError(null, "phone")}
+            onChangeText={(text) => handleOnchange(text, "phone")}
+            error={errors.phone}
+          ></TextInput>
+          <TextInput
+            onChangeText={(text) => handleOnchange(text, "password")}
+            onFocus={() => handleError(null, "password")}
             className="text-center border p-2 rounded-full my-2 mb-9 bg-white"
             placeholder="Contraseña"
+            error={errors.password}
+            password
           ></TextInput>
+          <TouchableOpacity
+            onPress={validate}
+            className="flex-row justify-center w-8/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300"
+          >
+            <Text className="text-center text-white bg-black font-bold">
+              Enviar
+            </Text>
+          </TouchableOpacity>
           <Text className="text-center mt-9 font-bold bg-white rounded-full text-red-800 bg-yellow-200 font-bold">
             Si ya tenés una cuenta, por favor:
           </Text>
