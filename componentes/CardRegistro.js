@@ -36,7 +36,7 @@ export default function CardRegistro() {
           </Text>
           <TouchableOpacity className="flex-row justify-center w-10/12 self-center mt-5 p-3 rounded-full bg-yellow-500">
             <Text className="text-center text-white font-bold">
-              Ingresá
+              Registrarse
             </Text>
           </TouchableOpacity>
         </View>
