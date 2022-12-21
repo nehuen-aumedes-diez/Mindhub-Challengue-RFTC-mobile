@@ -10,7 +10,7 @@ import {
 } from "react-native";
 export default function CardRegistro() {
   return (
-      <ScrollView className='bg-black'>
+      <ScrollView className='bg-zinc-900'>
         <View className="p-5">
           <Text className="text-center text-yellow-500 font-light mb-8 text-2xl mt-8">
             Registrate
