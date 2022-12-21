@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "RFTC-mobile",
-    "slug": "RFTC-mobile",
+    "name": "Mindhub-Challengue-RFTC-mobile",
+    "slug": "Mindhub-Challengue-RFTC-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/pantalla_carga.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {

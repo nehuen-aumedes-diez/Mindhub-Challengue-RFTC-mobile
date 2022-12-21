@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaView, StyleSheet, Switch, Text, View } from "react-native";
+import { useColorScheme } from "nativewind";
+import ListaProductos from "./screens/ListaProductos";
+import Home from './screens/Home'
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+
+import Registro from "./screens/Registro";
+
+import { NavigationContainer } from '@react-navigation/native';
+import Drawer from './navegacion/Drawer';
+
+
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+   /*  <SafeAreaView className="mt-10">
+      <Registro></Registro>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
+ */
+    <Provider store={store}>
+      <NavigationContainer >
+        <Drawer/>
+      </NavigationContainer>
+    </Provider>
+
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
