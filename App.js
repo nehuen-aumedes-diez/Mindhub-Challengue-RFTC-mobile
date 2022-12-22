@@ -22,7 +22,7 @@ export default function App() {
     </SafeAreaView>
  */
     <Provider store={store}>
-      <NavigationContainer >
+      <NavigationContainer>
         <Drawer/>
       </NavigationContainer>
     </Provider>
