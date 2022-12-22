@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import CardCarrito from './CardCarrito';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -7,47 +7,54 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export default function CarritoComponent() {
 
   const [typeProduct, setTypeProduct] = useState([])
-  const [carrito, setCarrito] = useState([])
+  const [buzo, setBuzo] = useState([])
+  const [remeraM, setRemeraM] = useState([])
+  const [remeraF, setRemeraF] = useState([])
 
-
-  /* useEffect(() => {
-    AsyncStorage.getItem('buzo')
-      .then(data => setCarrito(JSON.parse(data)))
-      .catch(err => console.log(err))
-  }, []) */
-
- 
   useEffect(()=>{
-    AsyncStorage.getAllKeys()
-    .then(data=> setTypeProduct(data))
-    .catch(err => console.log(err))
-
     AsyncStorage.getItem('Buzo')
-    .then(res => setCarrito(JSON.parse(res)))
-    .catch(err => console.log(err))
-
-    AsyncStorage.getItem('RemeraM')
-    .then(res => setCarrito(JSON.parse(res)))
+    .then(res => setBuzo(JSON.parse(res)))
     .catch(err => console.log(err))
   },[])
 
- console.log('Carrito', carrito)
+  useEffect(()=>{
+    AsyncStorage.getItem('RemeraM')
+    .then(res => setRemeraM(JSON.parse(res)))
+    .catch(err => console.log(err))
+  },[])
 
-  
+  useEffect(()=>{
+    AsyncStorage.getItem('RemeraF')
+    .then(res => setRemeraF(JSON.parse(res)))
+    .catch(err => console.log(err))
+  },[])
 
 
   return (
-    <View className=' bg-black w-full h-full'>
+    <ScrollView className=' bg-black w-full h-full'>
       <Text className='text-yellow-500 text-center text-3xl mt-8 font-light'>- Carrito -</Text>
       <Text className='text-white text-center text-xl mt-8 font-light'>Bienvenido a tu sección de compras</Text>
       <Text className='text-white text-center text-1xl mt-8 font-light'>1 - Acá podes checkear tus compras</Text>
       <Text className='text-white text-center text-1xl mt-8 font-light'>2 - Eliminar un Item que no desees comprar</Text>
       <Text className='text-white text-center text-1xl mt-8 font-light'>3 - Finalizar tu compra exitosamente</Text>
-      {carrito.length === 0 ? 
-        console.log('array vacio')
+      {
+        buzo === null ?
+        console.log('Vacio')
         :
-        carrito.map(producto => <CardCarrito foto={producto.foto} />)
+        <CardCarrito foto={buzo.foto} nombre={buzo.nombre} precio={buzo.precio} />
       }
-    </View>
+      {
+        remeraF === null ?
+        console.log('Vacio')
+        :
+        <CardCarrito foto={remeraF.foto} nombre={remeraF.nombre} precio={remeraF.precio} />
+      }
+      {
+        remeraM === null ?
+        console.log('Vacio')
+        :
+        <CardCarrito foto={remeraM.foto} nombre={remeraM.nombre} precio={remeraM.precio} />
+      }
+    </ScrollView>
   )
 }
