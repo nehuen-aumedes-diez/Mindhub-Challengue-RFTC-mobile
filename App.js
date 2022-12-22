@@ -13,7 +13,7 @@ import Drawer from './navegacion/Drawer';
 export default function App() {
   return (
     <Provider store={store}>
-      <NavigationContainer >
+      <NavigationContainer>
         <Drawer/>
       </NavigationContainer>
     </Provider>

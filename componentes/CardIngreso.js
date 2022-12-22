@@ -70,7 +70,7 @@ export default function CardIngreso(){
             
           ></TextInput>
           <TextInput
-            className="text-center border p-2 rounded-full my-2 mb-9 bg-white"
+            className="text-center border p-3 rounded-full my-4 bg-white"
             placeholder="Contraseña"
             password={true}
             secureTextEntry={true}
@@ -95,3 +95,4 @@ export default function CardIngreso(){
     </ImageBackground>
         )
 }
+

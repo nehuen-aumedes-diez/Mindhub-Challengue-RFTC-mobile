@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet, Alert } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ProductoCard({
   nombre,
@@ -11,6 +12,7 @@ export default function ProductoCard({
   precio,
   stock,
   _id,
+  tipo,
 }) {
   const [count, setCount] = React.useState(1);
   const [talleElegido, setTalleElegido] = useState(null)
@@ -36,10 +38,16 @@ export default function ProductoCard({
         foto: foto1,
         precio: precio,
         stock: stock,
-        talle: talleElegido
+        talle: talleElegido,
+        tipo: tipo,
     }
     console.log("producto agregado", productoAgregado);
     Alert.alert(`¡El artículo "${nombre} - talle ${talleElegido}" fue agregado al carrito con éxito!`)
+
+
+      AsyncStorage.setItem(productoAgregado.tipo, JSON.stringify(productoAgregado)).catch(err => console.log(err))
+    
+    
   }
 }
 

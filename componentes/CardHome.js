@@ -53,7 +53,7 @@ export default function CardHome() {
     return (
         <ScrollView className='h-full bg-black'>
             <Animated.Text style={{ opacity: fadeAnim }} className="text-yellow-500 font-extralight text-4xl text-center mt-10 tracking-widest"> - Retro Football - </Animated.Text>
-            <Text className="text-white font-thin text-lg text-left ml-24 tracking-wider"> Team Clothing</Text>
+            <Text className="text-white font-thin text-lg text-center tracking-wider"> Team Clothing</Text>
             <Animated.View style={{ opacity: fadeAnim }} className="w-full mt-5 align-center p-2">
                 <Image source={imagesBanner[counter]} resizeMode="cover" className="bg-red w-full h-screen" />
             </Animated.View>
@@ -61,13 +61,13 @@ export default function CardHome() {
                 <Text className='text-white text-center text-xl px-14 font-extralight mt-8'>Te invitamos a conocer nuestro catalogo de productos</Text>
                 <View className='flex items-center'>
                     <TouchableOpacity onPress={GoTienda} className='bg-zinc-800 w-3/6 p-5 rounded-full mt-8'>
-                        <Text className='text-yellow-600 text-center font-extralight'>Remeras Mujer</Text>
+                        <Text className='text-yellow-600 text-center font-light'>Remeras Mujer</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={GoTienda} className='bg-zinc-800 w-3/6 p-5 rounded-full mt-8'>
-                        <Text className='text-yellow-600 text-center font-extralight'>Remeras Hombre</Text>
+                        <Text className='text-yellow-600 text-center font-light'>Remeras Hombre</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={GoTienda} className='bg-zinc-800 w-3/6 p-5 rounded-full my-8'>
-                        <Text className='text-yellow-600 text-center font-extralight'>Buzos</Text>
+                        <Text className='text-yellow-600 text-center font-light'>Buzos</Text>
                     </TouchableOpacity>
                 </View>
             </View>
