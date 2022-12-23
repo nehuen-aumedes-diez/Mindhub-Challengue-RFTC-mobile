@@ -23,8 +23,14 @@ export default function CardHome() {
 
     const imagesBanner = [image1, image2, image3];
     const navigation = useNavigation();
-    const GoTienda = () => {
-        navigation.navigate("Tienda");
+    const GoBuzos = () => {
+        navigation.navigate("Buzos");
+    };
+    const GoRemerasF = () => {
+        navigation.navigate("Remeras de Mujeres");
+    };
+    const GoRemerasM = () => {
+        navigation.navigate("Remeras de Hombres");
     };
 
     const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -60,13 +66,13 @@ export default function CardHome() {
             <View className='bg-dark w-full h-full mt-5'>
                 <Text className='text-white text-center text-xl px-14 font-extralight mt-8'>Te invitamos a conocer nuestro catalogo de productos</Text>
                 <View className='flex items-center'>
-                    <TouchableOpacity onPress={GoTienda} className='bg-zinc-800 w-3/6 p-5 rounded-full mt-8'>
+                    <TouchableOpacity onPress={GoRemerasF} className='bg-zinc-800 w-3/6 p-5 rounded-full mt-8'>
                         <Text className='text-yellow-600 text-center font-light'>Remeras Mujer</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={GoTienda} className='bg-zinc-800 w-3/6 p-5 rounded-full mt-8'>
+                    <TouchableOpacity onPress={GoRemerasM} className='bg-zinc-800 w-3/6 p-5 rounded-full mt-8'>
                         <Text className='text-yellow-600 text-center font-light'>Remeras Hombre</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={GoTienda} className='bg-zinc-800 w-3/6 p-5 rounded-full my-8'>
+                    <TouchableOpacity onPress={GoBuzos} className='bg-zinc-800 w-3/6 p-5 rounded-full my-8'>
                         <Text className='text-yellow-600 text-center font-light'>Buzos</Text>
                     </TouchableOpacity>
                 </View>

@@ -24,7 +24,7 @@ export default function RemeraHombre() {
     }
 
     return (
-        <View>
+        <View style={{backgroundColor: 'black', padding: 5}}>
             <TextInput style={styles.textInput} onChangeText={filter} placeholder="Buscar por nombre..." />
             {(remerasM.length > 0)
             ?   <FlatList
