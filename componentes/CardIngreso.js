@@ -1,5 +1,5 @@
 import React, {useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, ImageBackground, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, ImageBackground, ScrollView, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import userActions from '../redux/actions/userAction';
@@ -29,21 +29,13 @@ export default function CardIngreso(){
         let res = await dispatch(userActions.signIn(data))
         // console.log(4,res)
         if (res.payload.success) {
-        //   swal({
-        //     title: "Bienvenido "+ res.payload.response.user.name,
-        //     // text:  "You are logged!!",
-        //     icon: "success",
-        //     timer: "3000"
-        // })
-          // redirect()
-          alert("Bienvenido "+ res.payload.response.user.name)
+
+          Alert.alert("Bienvenido "+ res.payload.response.user.name)
           navigation.navigate('Inicio')
-          
        }
        else {
         alert('usuario incorrecto')
        }
-
       } catch(error){
         console.log(error,11);
       }
@@ -53,14 +45,9 @@ export default function CardIngreso(){
         uri: "https://st.depositphotos.com/1051862/3469/i/600/depositphotos_34699129-stock-photo-abstract-red-gradient-background.jpg",
       };
         return(
-    <ImageBackground
-      className="w-full h-full"
-      source={image}
-      resizeMode="cover"
-    >
-      <ScrollView>
+      <ScrollView className='bg-black'>
         <View className="justify-center p-5 mt-5">
-          <Text className="text-center text-red-800 bg-yellow-200 font-bold mb-8 rounded-full text-xl">
+          <Text className="text-center text-yellow-500 font-light mb-8 rounded-full text-2xl mt-9">
             Ingresá
           </Text>
           <TextInput
@@ -77,22 +64,21 @@ export default function CardIngreso(){
             onChangeText={(item)=>{handleText(item,'password')}}
            
           ></TextInput>
-          <TouchableOpacity onPress={SignIn} className="flex-row justify-center w-8/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300">
-            <Text  className="text-center text-white bg-black font-bold">
+          <TouchableOpacity onPress={SignIn} className="flex-row justify-center w-10/12 self-center mt-10 p-3 rounded-full bg-yellow-500">
+            <Text  className="text-center text-white font-bold">
               Entrar
             </Text>
           </TouchableOpacity>
-          <Text className="text-center mt-9 text-red-800 bg-yellow-200 font-bold rounded-full">
+          <Text className="text-center mt-9 text-white font-medium text-s my-10">
             Si no tenés una cuenta aún, por favor:
           </Text>
-          <TouchableOpacity onPress={butRegis} className="flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300">
-            <Text className="text-center text-white bg-black font-bold">
+          <TouchableOpacity onPress={butRegis} className="flex-row justify-center w-10/12 self-center mt-3 p-3 rounded-full bg-yellow-500">
+            <Text className="text-center text-white font-bold">
               Registrate
             </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </ImageBackground>
         )
 }
 
