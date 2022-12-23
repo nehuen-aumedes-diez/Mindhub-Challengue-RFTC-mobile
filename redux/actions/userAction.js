@@ -4,9 +4,9 @@ import { BASE_URL } from "../../api/url";
 
 const newUser = createAsyncThunk('newUser', async(data)=>{
     try{
-        let res = await axios.post(`${BASE_URL}/auth/signup`,data)
-        console.log(res.data.message);
-        console.log(res.data);
+        let res = await axios.post('http://192.168.0.6:8000/api/auth/signup',data)
+        console.log(res.data.message,22);
+        console.log(res.data,55);
         if(res.data.id){
             return {success:true, response: data}
         } else {

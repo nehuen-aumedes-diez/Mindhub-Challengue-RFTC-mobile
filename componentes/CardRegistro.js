@@ -1,24 +1,19 @@
 import React from "react";
-import {
-  ScrollView,
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  ImageBackground,
-  Button,
-  Keyboard, 
-  Alert
-} from "react-native";
+import {ScrollView, View, Text, TextInput, TouchableOpacity, ImageBackground, Button, Keyboard, Alert} from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import userActions from '../redux/actions/userAction';
+
 export default function CardRegistro() {
+
   const [inputs, setInputs] = React.useState({
+    name: "",
     email: "",
-    fullname: "",
-    phone: "",
     password: "",
   });
+  console.log(inputs);
   const [errors, setErrors] = React.useState({});
+  let dispatch = useDispatch()
   const image = {
     uri: "https://st.depositphotos.com/1051862/3469/i/600/depositphotos_34699129-stock-photo-abstract-red-gradient-background.jpg",
   };
@@ -26,10 +21,8 @@ export default function CardRegistro() {
   const butIng = () => {
       navigation.navigate('Ingreso')
   }
-  const butEnvi = () => {
-    navigation.navigate('ListaProductos')
-}
-  const validate = () => {
+  
+  const validate = (e) => {
     Keyboard.dismiss();
     let isValid = true;
 
@@ -41,13 +34,8 @@ export default function CardRegistro() {
       isValid = false;
     }
 
-    if (!inputs.fullname) {
+    if (!inputs.name) {
       handleError("Por favor ingresa tu nombre y apellido", "fullname");
-      isValid = false;
-    }
-
-    if (!inputs.phone) {
-      handleError("Por favor ingresa un número telefónico", "phone");
       isValid = false;
     }
 
@@ -62,17 +50,35 @@ export default function CardRegistro() {
     if (isValid) {
       register();
     }
+
   };
 
-  const register = () => {
-    setTimeout(() => {
-      try {
-        AsyncStorage.setItem("userData", JSON.stringify(inputs));
-      } catch (error) {
-        Alert.alert("Error", "Algo salió mal");
-      }
-    }, 3000);
-  };
+  // const register = () => {
+  //   setTimeout(() => {
+  //     try {
+  //       AsyncStorage.setItem("userData", JSON.stringify(inputs));
+  //     } catch (error) {
+  //       Alert.alert("Error", "Algo salió mal");
+  //     }
+  //   }, 3000);
+    
+  // };
+  async function register(e){
+   
+    try{
+      let res = await dispatch(userActions.newUser(inputs))
+      console.log(4,res)
+      if (!res.payload.success) {
+        Alert.alert("Usuario creado ")
+        navigation.navigate('Ingreso')
+     }
+     else {
+        Alert.alert('usuario no creado')
+     }
+    } catch(error){
+      console.log(error,11);
+    }
+  }
 
   const handleOnchange = (text, input) => {
     setInputs((prevState) => ({ ...prevState, [input]: text }));
@@ -95,8 +101,8 @@ export default function CardRegistro() {
           <TextInput
             className="text-center border p-2 rounded-full my-2 bg-white"
             placeholder="Nombre y Apellido"
-            onChangeText={(text) => handleOnchange(text, "fullname")}
-            onFocus={() => handleError(null, "fullname")}
+            onChangeText={(text) => handleOnchange(text, "name")}
+            onFocus={() => handleError(null, "name")}
             error={errors.fullname}
           ></TextInput>
           <TextInput
@@ -107,23 +113,17 @@ export default function CardRegistro() {
             error={errors.email}
           ></TextInput>
           <TextInput
-            className="text-center border p-2 rounded-full my-2 bg-white"
-            placeholder="Teléfono"
-            keyboardType="numeric"
-            onFocus={() => handleError(null, "phone")}
-            onChangeText={(text) => handleOnchange(text, "phone")}
-            error={errors.phone}
-          ></TextInput>
-          <TextInput
             onChangeText={(text) => handleOnchange(text, "password")}
             onFocus={() => handleError(null, "password")}
             className="text-center border p-2 rounded-full my-2 mb-9 bg-white"
             placeholder="Contraseña"
             error={errors.password}
-            password
+            password={true}
+            secureTextEntry={true}
+            
           ></TextInput>
           <TouchableOpacity
-            onPress={() => navigation.navigate("ListaProductos") && validate}
+            onPress={validate}
             className="flex-row justify-center w-8/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300"
           >
             <Text className="text-center text-white bg-black font-bold">
@@ -143,3 +143,5 @@ export default function CardRegistro() {
     </ImageBackground>
   );
 }
+
+// navigation.navigate("ListaProductos") &&
