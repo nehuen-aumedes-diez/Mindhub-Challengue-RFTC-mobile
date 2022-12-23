@@ -1,5 +1,5 @@
 import React, {useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, ImageBackground, ScrollView } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, ImageBackground, ScrollView, Alert } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import userActions from '../redux/actions/userAction';
@@ -29,21 +29,13 @@ export default function CardIngreso(){
         let res = await dispatch(userActions.signIn(data))
         // console.log(4,res)
         if (res.payload.success) {
-        //   swal({
-        //     title: "Bienvenido "+ res.payload.response.user.name,
-        //     // text:  "You are logged!!",
-        //     icon: "success",
-        //     timer: "3000"
-        // })
-          // redirect()
-          alert("Bienvenido "+ res.payload.response.user.name)
+
+          Alert.alert("Bienvenido "+ res.payload.response.user.name)
           navigation.navigate('Inicio')
-          
        }
        else {
         alert('usuario incorrecto')
        }
-
       } catch(error){
         console.log(error,11);
       }
