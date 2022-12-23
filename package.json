@@ -20,6 +20,7 @@
     "expo-status-bar": "~1.4.2",
     "nativewind": "^2.0.11",
     "react": "18.1.0",
+    "react-icons": "^4.7.1",
     "react-native": "0.70.5",
     "react-native-android-checkbox": "^3.1.1",
     "react-native-gesture-handler": "^2.8.0",

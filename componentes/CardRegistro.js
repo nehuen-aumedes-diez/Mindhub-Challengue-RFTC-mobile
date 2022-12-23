@@ -88,14 +88,9 @@ export default function CardRegistro() {
   };
 
   return (
-    <ImageBackground
-      className="w-full h-full"
-      source={image}
-      resizeMode="cover"
-    >
-      <ScrollView>
+      <ScrollView className='bg-black'>
         <View className="justify-center p-5 mt-5 ">
-          <Text className="text-center text-red-800 bg-yellow-200 font-bold mb-8 rounded-full text-xl">
+          <Text className="text-center text-yellow-500 font-light mb-8 rounded-full text-2xl mt-9">
             Registrate
           </Text>
           <TextInput
@@ -124,23 +119,22 @@ export default function CardRegistro() {
           ></TextInput>
           <TouchableOpacity
             onPress={validate}
-            className="flex-row justify-center w-8/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300"
+            className="flex-row justify-center w-10/12 self-center mt-10 p-3 rounded-full bg-yellow-500"
           >
-            <Text className="text-center text-white bg-black font-bold">
+            <Text className="text-center text-white font-bold">
               Enviar
             </Text>
           </TouchableOpacity>
-          <Text className="text-center mt-9 font-bold bg-white rounded-full text-red-800 bg-yellow-200 font-bold">
+          <Text className="text-center mt-9 text-white font-medium text-s my-10">
             Si ya tenés una cuenta, por favor:
           </Text>
-          <TouchableOpacity onPress={butIng} className="flex-row justify-center w-10/12 self-center mt-5 bg-black dark:bg-white p-3 rounded-full border border-orange-300">
-            <Text className="text-center text-white bg-black font-bold">
+          <TouchableOpacity onPress={butIng} className="flex-row justify-center w-10/12 self-center mt-3 p-3 rounded-full bg-yellow-500">
+            <Text className="text-center text-white font-bold">
               Ingresá
             </Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </ImageBackground>
   );
 }
 
