@@ -6,8 +6,7 @@ import Registro from '../screens/Registro';
 import Ingreso from '../screens/Ingreso';
 import Contacto from '../screens/Contacto';
 import StackNav from './Stack';
-
-
+import Nosotros from "../screens/Nosotros"
 const DrawerNav= createDrawerNavigator()
 
 
@@ -22,6 +21,7 @@ export default function Drawer() {
             <DrawerNav.Screen name='Registro' component={Registro}/>
             <DrawerNav.Screen name='Ingreso' component={Ingreso}/>
             <DrawerNav.Screen name='Contacto' component={Contacto}/>
+            <DrawerNav.Screen name='nosotros' component={Nosotros}/>
     </DrawerNav.Navigator>
   )
 }
