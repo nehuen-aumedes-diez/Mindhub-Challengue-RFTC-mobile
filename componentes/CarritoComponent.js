@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView } from 'react-native'
+import { View, Text, Image, ScrollView, Button, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import CardCarrito from './CardCarrito';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -10,24 +10,40 @@ export default function CarritoComponent() {
   const [buzo, setBuzo] = useState([])
   const [remeraM, setRemeraM] = useState([])
   const [remeraF, setRemeraF] = useState([])
+  let [reload, setReload] = useState(true)
+
+  console.log('BUZO', buzo)
+  console.log('REMERA MASC', remeraM)
+  console.log('REMERA FEM', remeraF)
 
   useEffect(()=>{
     AsyncStorage.getItem('Buzo')
     .then(res => setBuzo(JSON.parse(res)))
     .catch(err => console.log(err))
-  },[])
+  },[reload])
 
   useEffect(()=>{
     AsyncStorage.getItem('RemeraM')
     .then(res => setRemeraM(JSON.parse(res)))
     .catch(err => console.log(err))
-  },[])
+  },[reload])
 
   useEffect(()=>{
     AsyncStorage.getItem('RemeraF')
     .then(res => setRemeraF(JSON.parse(res)))
     .catch(err => console.log(err))
-  },[])
+  },[reload])
+
+  const limpiarCarrito = () => {
+    
+    AsyncStorage.clear()
+    .then(setReload(!reload))
+    .catch(err => console.log(err))
+  }
+
+  const actualizar = () => {
+    setReload(!reload)
+  }
 
 
   return (
@@ -55,6 +71,8 @@ export default function CarritoComponent() {
         :
         <CardCarrito foto={remeraM.foto} nombre={remeraM.nombre} precio={remeraM.precio} />
       }
+      <Button title='Limpiar carrito' onPress={limpiarCarrito} ></Button>
+      <Button title='Actualizar carrito' onPress={actualizar} ></Button>
     </ScrollView>
   )
 }
