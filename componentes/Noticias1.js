@@ -11,6 +11,8 @@ import {
 } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
+
+
 const Noticias1 = () => {
   const image = {
     uri: "https://us.cdn.eltribuno.com/112021/1636841501527.jpg?&cw=720",

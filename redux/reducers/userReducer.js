@@ -1,5 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import userActions from "../actions/userAction";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const {newUser, signIn, signOut, relogin} = userActions
 
@@ -22,14 +23,14 @@ const userReducer = createReducer(initialState, (builder)=>{
         const{success , response }= action.payload
         if(success){
             let {user, token} = response
-            localStorage.setItem('token', JSON.stringify({ token : {user:token}}))
+            AsyncStorage.setItem('token', JSON.stringify({ token : {user:token}}))
+            .catch(err=>console.log(err))
             let newState={
                 ...state,
                 name: user.name,
                 logged: true,
                 token: token
             }
-            
             return newState
         } else{
             let newState={
